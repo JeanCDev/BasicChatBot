@@ -1,0 +1,15 @@
+{
+  "name": "chatbottestnode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@langchain/community": "^0.0.25",
+    "node-llama-cpp": "^2.8.5"
+  }
+}
