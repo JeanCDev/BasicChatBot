@@ -46,7 +46,12 @@ const testeChatLlamaCpp = async(prompt) => {
 
   console.time();
   console.log(`You: ${prompt}`);
-  const response = await model.invoke(['imageurl', ...prompt])
+
+  const formatted = prompt.map((message) => `GPT4 Correct User: ${message}`)
+
+  const context = "GPT4 Correct Assistant: A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions."
+
+  const response = await model.invoke(['text', context, ...formatted, 'GPT4 Correct Assistant:']);
 /* }); */
   console.log(response.content);
   console.timeEnd();
@@ -55,6 +60,6 @@ const testeChatLlamaCpp = async(prompt) => {
 //testeLlamaCppInvoke(prompt)
 
 testeChatLlamaCpp([
-  'tell me a joke',
-  'and give an example of basic python code'
+  'Hi, how are you? You are a helpfull assistant',
+  'give an example of basic python code'
 ]); // Multiple inputs
